@@ -6,9 +6,13 @@ Adds an audio visualizer behind the user modal.
 
 ## Themes
 
-You can customize the color of the visualiser by changing this variable in your theme:
+You can customize the color of the visualiser by changing the background variable in your theme:
 
-`--audioviz-background: rgb(50,50,50);`
+``
+.vp-audioviz-bar {
+  background: #7289da;
+}
+``
 
 ### Download
 

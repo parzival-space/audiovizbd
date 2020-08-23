@@ -8,6 +8,7 @@
 
 var AudioVizBD = (() => {
 
+
     return class AudioVizBD {
         // Plugin Info
         getName() {
@@ -35,11 +36,6 @@ var AudioVizBD = (() => {
 
         // Init
         initialize() {
-
-        }
-
-        // Load settings
-        getSettingsPanel() {
 
         }
 
@@ -105,7 +101,7 @@ var AudioVizBD = (() => {
                 const audioCtx = new AudioContext()
                 const audio = audioCtx.createMediaStreamSource(stream)
                 const easeInOutCubic = t => t < .5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
-                const barCount = 20
+                const barCount = 25
 
                 const analyser = audioCtx.createAnalyser()
                 audio.connect(analyser)
