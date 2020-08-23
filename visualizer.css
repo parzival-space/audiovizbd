@@ -28,7 +28,7 @@
   z-index: -1;
 }
 .vp-audioviz-bar {
-  background: --audioviz-background;
+  background: #7289da;
   box-sizing: border-box;
   flex: 1;
 }
