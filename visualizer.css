@@ -1,5 +1,5 @@
 :root {
-  --audioviz-background: #7289da;
+  --audioviz-background: rgba(0,0,0,0.8);
 }
 .panels-j1Uci_ > .container-3baos1:last-child {
   position: relative;
@@ -31,7 +31,7 @@
   z-index: -1;
 }
 .vp-audioviz-bar {
-  background: --audioviz-background;
+  background-color: --audioviz-background;
   box-sizing: border-box;
   flex: 1;
 }
