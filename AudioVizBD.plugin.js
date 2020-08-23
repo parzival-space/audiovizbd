@@ -1,40 +1,53 @@
-//META{"name":"AudioVizBD"}*//
+/**
+ * @name AudioVizBD
+ * @authorLink http://cyberfen.eu/discord
+ * @donate http://cyberfen.eu/donate
+ * @steam http://cyberfen.eu/steam
+ * @source https://cyberfen.github.io/audiovizbd/AudioVizBD.plugin.js
+ */
 
 var AudioVizBD = (() => {
 
-
     return class AudioVizBD {
         // Plugin Info
-        getName () { return "AudioVizBD"; }
-        getVersion () { return "1.0.0"; }
-        getAuthor () { return "𝓟𝓪𝓻𝔃𝓲𝓿𝓪𝓵"; }
-        getDescription () { return "Adds an audio visualizer behind the user modal."}
+        getName() {
+            return "AudioVizBD";
+        }
+        getVersion() {
+            return "1.0.0";
+        }
+        getAuthor() {
+            return "𝓟𝓪𝓻𝔃𝓲𝓿𝓪𝓵";
+        }
+        getDescription() {
+            return "Adds an audio visualizer behind the user modal."
+        }
 
         // Constructor
         constructor() {
-        
+
         }
 
         // Init Constructor
-        initConstructor () {
+        initConstructor() {
 
         }
 
         // Init
-        initialize () {
+        initialize() {
 
         }
 
         // Load settings
-        getSettingsPanel () {
+        getSettingsPanel() {
 
         }
 
         // Load Plugin
-        load () {}
+        load() {}
 
         // Start
-        start () {
+        start() {
             setTimeout(() => {
                 this.intervals = [];
                 this.startVisualizer();
@@ -43,13 +56,13 @@ var AudioVizBD = (() => {
         }
 
         // Reload
-        reload () {
+        reload() {
             this.stopVisualizer();
             this.startVisualizer();
         }
 
         // Stop
-        stop () {
+        stop() {
             for (const interval of this.intervals) {
                 clearInterval(interval);
             }
@@ -59,11 +72,11 @@ var AudioVizBD = (() => {
         //                Own Plugin                 //
         //===========================================//
 
-        loadStylesheet (url) {
+        loadStylesheet(url) {
             $('head').append($('<link rel="stylesheet" type="text/css" />').attr('href', url));
         }
 
-        stopVisualizer () {
+        stopVisualizer() {
             for (const interval of this.intervals) {
                 clearInterval(interval);
             }
