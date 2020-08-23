@@ -38,7 +38,7 @@ var AudioVizBD = (() => {
             setTimeout(() => {
                 this.intervals = [];
                 this.startVisualizer();
-                this.loadStylesheet('style.scss');
+                this.loadStylesheet('https://cyberfen.github.io/audiovizbd/visualizer.css');
             }, 0)
         }
 
