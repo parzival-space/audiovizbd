@@ -29,9 +29,7 @@ var AudioVizBD = (() => {
         constructor() {}
 
         // Load Plugin
-        load() {
-            this
-        }
+        load() {}
 
         // Start
         start() {
