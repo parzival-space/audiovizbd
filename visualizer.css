@@ -1,7 +1,7 @@
 .panels-j1Uci_ > .container-3baos1:last-child {
   position: relative;
 
-  & > :not(.vp-audioviz-visualizer) {
+  & > :not(.bd-audioviz-visualizer) {
     z-index: 2;
   }
   .avatar-SmRMf2.wrapper-3t9DeA, .button-38aScr {
@@ -12,10 +12,10 @@
   }
 }
 
-.vp-audioviz-goo {
+.audioviz-goo {
   display: none;
 }
-.vp-audioviz-visualizer {
+.audioviz-visualizer {
   align-items: flex-end;
   display: flex;
   filter: url(#vpVisualizerGoo);
@@ -27,7 +27,7 @@
   transform: translateY(30px);
   z-index: -1;
 }
-.vp-audioviz-bar {
+.audioviz-bar {
   background: #7289da;
   box-sizing: border-box;
   flex: 1;

@@ -1,5 +1,7 @@
 /**
  * @name AudioVizBD
+ * @version 0.0.5
+ * @description Adds an audio visualizer behind the user modal.
  * @authorLink http://cyberfen.eu/discord
  * @donate http://cyberfen.eu/donate
  * @steam http://cyberfen.eu/steam
@@ -7,7 +9,6 @@
  */
 
 var AudioVizBD = (() => {
-
 
     return class AudioVizBD {
         // Plugin Info
@@ -25,22 +26,12 @@ var AudioVizBD = (() => {
         }
 
         // Constructor
-        constructor() {
-
-        }
-
-        // Init Constructor
-        initConstructor() {
-
-        }
-
-        // Init
-        initialize() {
-
-        }
+        constructor() {}
 
         // Load Plugin
-        load() {}
+        load() {
+            this
+        }
 
         // Start
         start() {
@@ -108,28 +99,28 @@ var AudioVizBD = (() => {
                 analyser.fftSize = 1024
                 let accountContainer
                 let visualizer = document.createElement('div')
-                visualizer.classList.add('vp-audioviz-visualizer')
+                visualizer.classList.add('audioviz-visualizer')
                 for (let i = 0; i < barCount; i++) {
                     let bar = document.createElement('div')
-                    bar.classList.add('vp-audioviz-bar')
+                    bar.classList.add('audioviz-bar')
                     bar.style.height = Math.round(Math.random() * 90) + 5 + 'px'
                     visualizer.appendChild(bar)
                 }
                 const visualizerGoo = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
                 visualizerGoo.setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns', 'http://www.w3.org/2000/svg')
                 visualizerGoo.setAttributeNS('http://www.w3.org/2000/version/', 'version', '1.1')
-                visualizerGoo.classList.add('vp-audioviz-goo')
+                visualizerGoo.classList.add('audioviz-goo')
                 visualizerGoo.innerHTML = `
-                <filter id="vpVisualizerGoo">
+                <filter id="audioVisualizer">
                   <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"></feGaussianBlur>
-                  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="vpVisualizerGoo"></feColorMatrix>
-                  <feComposite in="SourceGraphic" in2="vpVisualizerGoo" operator="atop"></feComposite>
+                  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="audioVisualizer"></feColorMatrix>
+                  <feComposite in="SourceGraphic" in2="audioVisualizer" operator="atop"></feComposite>
                 </filter>
               `
 
                 const findElement = setInterval(() => {
                     if (accountContainer) {
-                        visualizer = document.querySelector('.vp-audioviz-visualizer')
+                        visualizer = document.querySelector('.audioviz-visualizer')
                     } else {
                         accountContainer = document.querySelector('.panels-j1Uci_ > .container-3baos1:last-child')
                         if (accountContainer) {
