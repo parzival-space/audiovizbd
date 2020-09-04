@@ -3,6 +3,8 @@
 ## Description
 
 Adds an audio visualizer behind the user modal.
+This plugin was originally made for Powercord but I ported it to BetterDiscord.
+I also allowed myself to make some minor changes for better performance.
 
 ## Themes
 
