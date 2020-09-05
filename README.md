@@ -10,11 +10,11 @@ I also allowed myself to make some minor changes for better performance.
 
 You can customize the color of the visualiser by changing the background variable in your theme:
 
-``
-.vp-audioviz-bar {
-  background: #7289da;
+```css
+.audioVisualizer {
+  background-color: pink;
 }
-``
+```
 
 ### Download
 
