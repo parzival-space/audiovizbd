@@ -28,7 +28,8 @@
   transform: translateY(30px);
   z-index: -1;
 }
-.audioVisualizer {
+.audioviz-bar {
+  background: #7289da;
   box-sizing: border-box;
   flex: 1;
 }

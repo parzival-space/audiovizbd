@@ -1,6 +1,6 @@
 /**
  * @name AudioVizBD
- * @version 1.0.2
+ * @version 1.0.3
  * @description Adds an audio visualizer behind the user modal.
  * @authorLink http://cyberfen.eu/discord
  * @donate http://cyberfen.eu/donate
@@ -15,7 +15,7 @@ var AudioVizBD = (() => {
             return "AudioVizBD";
         }
         getVersion() {
-            return "1.0.2";
+            return "1.0.3";
         }
         getAuthor() {
             return "𝓟𝓪𝓻𝔃𝓲𝓿𝓪𝓵";
@@ -29,7 +29,7 @@ var AudioVizBD = (() => {
 
         // Load Plugin
         load() {
-            if (BdApi.getData(this.getName(), "colorCode") == undefined) BdApi.setData(this.getName(), "ColorCode", "#7289da");
+            if (BdApi.getData(this.getName(), "colorCode") == undefined) BdApi.setData(this.getName(), "colorCode", "#7289da");
             this.ColorCode = BdApi.getData(this.getName(), "colorCode");
 
             if (BdApi.getData(this.getName(), "hasShownChangelog") != true) {
@@ -179,7 +179,7 @@ var AudioVizBD = (() => {
                         const bar = visualizer.children[i]
                         bar.style.height = height + '%'
                         if (bar.style.backgroundColor != this.ColorCode) {
-                            this.style.backgroundColor = this.ColorCode;
+                            bar.style.backgroundColor = this.ColorCode;
                         }
                     }
                 }, 20)
