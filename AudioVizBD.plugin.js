@@ -1,6 +1,6 @@
 /**
  * @name AudioVizBD
- * @version 1.0.4
+ * @version 1.0.5
  * @description Adds an audio visualizer behind the user modal.
  * @authorLink http://cyberfen.eu/discord
  * @donate http://cyberfen.eu/donate
@@ -15,7 +15,7 @@ var AudioVizBD = (() => {
             return "AudioVizBD";
         }
         getVersion() {
-            return "1.0.4";
+            return "1.0.5";
         }
         getAuthor() {
             return "𝓟𝓪𝓻𝔃𝓲𝓿𝓪𝓵";
@@ -93,7 +93,9 @@ var AudioVizBD = (() => {
             for (const interval of this.intervals) {
                 clearInterval(interval);
             }
-            document.querySelector('.audioviz-visualizer').remove();
+            for (const Goo of document.querySelectorAll('.audioviz-visualizer')) {
+                Goo.remove();
+            }
         }
 
         startVisualizer() {
@@ -205,7 +207,8 @@ const Changelog = [
         items: [
             "Removed JQuery",
             "Now using WebpackModule form classnames. thx to @Strencher#1044 ",
-            "Fixed some css class names"
+            "Fixed some css class names",
+            "Fixed stopVisualizer()"
         ]
     }
 ]
