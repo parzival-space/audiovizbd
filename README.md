@@ -23,3 +23,6 @@ You can download the plugin [here](https://cyberfen.github.io/audiovizbd/AudioVi
 ### Example
 
 ![Preview](https://i.imgur.com/z6yrA0i.gif)
+
+v1.0.6
+![Preview](https://i.imgur.com/ng8c1a8.gif)
