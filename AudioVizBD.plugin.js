@@ -15,7 +15,7 @@ var AudioVizBD = (() => {
             return "AudioVizBD";
         }
         getVersion() {
-            return "1.0.6";
+            return "1.0.7";
         }
         getAuthor() {
             return "𝓟𝓪𝓻𝔃𝓲𝓿𝓪𝓵";
@@ -33,7 +33,7 @@ var AudioVizBD = (() => {
             this.ColorCode = BdApi.getData(this.getName(), "colorCode");
 
             if (BdApi.getData(this.getName(), "hasShownChangelog") != true) {
-                ZeresPluginLibrary.Modals.showChangelogModal(this.getName(), this.getVersion(), Changelog, "View [GitHub Repo](https://github.com/cyberfen/audiovizbd)");
+                ZeresPluginLibrary.Modals.showChangelogModal(this.getName(), this.getVersion(), Changelog, "View [GitHub Repo](https://github.com/parzival-dev/audiovizbd)");
                 BdApi.setData(this.getName(), "hasShownChangelog", true)
             }
         }
@@ -58,11 +58,11 @@ var AudioVizBD = (() => {
         // Start
         start() {
             if (!global.ZeresPluginLibrary) return window.BdApi.alert("Library Missing", `The library plugin needed for ${this.getName()} is missing.<br /><br /> <a href="https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/rauenzi/BDPluginLibrary/master/release/0PluginLibrary.plugin.js" target="_blank">Click here to download the library!</a>`);
-            ZLibrary.PluginUpdater.checkForUpdate(this.getName(), this.getVersion(), "https://cyberfen.github.io/audiovizbd/AudioVizBD.plugin.js");
+            ZLibrary.PluginUpdater.checkForUpdate(this.getName(), this.getVersion(), "https://parzival-dev.github.io/audiovizbd/AudioVizBD.plugin.js");
 
             this.intervals = [];
             this.startVisualizer();
-            this.loadStylesheet('https://cyberfen.github.io/audiovizbd/visualizer.css');
+            this.loadStylesheet('https://dev-parzival.github.io/audiovizbd/visualizer.css');
         }
 
         // Reload
@@ -203,20 +203,10 @@ var AudioVizBD = (() => {
 
 const Changelog = [
     {
-        title: "Customization :)",
-        type: "added",
-        items: [
-            "Now you can change the color of the visualizer in the settings."
-        ]
-    },
-    {
-        title: "Bye JQuery",
+        title: "Fixed",
         type: "improved",
         items: [
-            "Removed JQuery",
-            "Now using WebpackModule form classnames. thx to @Strencher#1044 ",
-            "Fixed some css class names",
-            "Fixed stopVisualizer()"
+            "updated style urls thanks to userXinos"
         ]
     }
 ]
