@@ -33,7 +33,7 @@ var AudioVizBD = (() => {
             this.ColorCode = BdApi.getData(this.getName(), "colorCode");
 
             if (BdApi.getData(this.getName(), "hasShownChangelog") != true) {
-                ZeresPluginLibrary.Modals.showChangelogModal(this.getName(), this.getVersion(), Changelog, "View [GitHub Repo](https://github.com/parzival-dev/audiovizbd)");
+                ZeresPluginLibrary.Modals.showChangelogModal(this.getName(), this.getVersion(), Changelog, "View [GitHub Repo](https://github.com/dev-parzival/audiovizbd)");
                 BdApi.setData(this.getName(), "hasShownChangelog", true)
             }
         }
@@ -58,7 +58,7 @@ var AudioVizBD = (() => {
         // Start
         start() {
             if (!global.ZeresPluginLibrary) return window.BdApi.alert("Library Missing", `The library plugin needed for ${this.getName()} is missing.<br /><br /> <a href="https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/rauenzi/BDPluginLibrary/master/release/0PluginLibrary.plugin.js" target="_blank">Click here to download the library!</a>`);
-            ZLibrary.PluginUpdater.checkForUpdate(this.getName(), this.getVersion(), "https://parzival-dev.github.io/audiovizbd/AudioVizBD.plugin.js");
+            ZLibrary.PluginUpdater.checkForUpdate(this.getName(), this.getVersion(), "https://dev-parzival.github.io/audiovizbd/AudioVizBD.plugin.js");
 
             this.intervals = [];
             this.startVisualizer();
