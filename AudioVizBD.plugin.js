@@ -1,6 +1,6 @@
 /**
  * @name AudioVizBD
- * @version 1.0.6
+ * @version 1.0.7
  * @description Adds an audio visualizer behind the user modal.
  * @authorLink http://cyberfen.eu/discord
  * @donate http://cyberfen.eu/donate
