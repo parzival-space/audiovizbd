@@ -18,7 +18,7 @@ You can customize the color of the visualiser by changing the background variabl
 
 ### Download
 
-You can download the plugin [here](https://cyberfen.github.io/audiovizbd/AudioVizBD.plugin.js).
+You can download the plugin [here](https://dev-parzival.github.io/audiovizbd/AudioVizBD.plugin.js).
 
 ### Example
 
