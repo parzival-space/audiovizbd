@@ -22,8 +22,4 @@ You can download the plugin [here](https://dev-parzival.github.io/audiovizbd/Aud
 
 ### Example
 
-![Preview](https://i.imgur.com/z6yrA0i.gif)
-
-v1.0.6
-
-![Preview](https://i.imgur.com/ng8c1a8.gif)
+![Preview 1.0.8](https://i.imgur.com/8jZtMsq.gif)

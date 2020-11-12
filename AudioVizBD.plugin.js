@@ -1,10 +1,10 @@
 /**
  * @name AudioVizBD
- * @version 1.0.7
+ * @version 1.0.8
  * @description Adds an audio visualizer behind the user modal.
- * @authorLink http://cyberfen.eu/discord
- * @donate http://cyberfen.eu/donate
- * @source https://cyberfen.github.io/audiovizbd/AudioVizBD.plugin.js
+ * @authorLink http://parzival-dev.eu/discord
+ * @donate http://parzival-dev.eu/donate
+ * @source https://dev-parzival.github.io/audiovizbd/AudioVizBD.plugin.js
  */
 
 var AudioVizBD = (() => {
@@ -15,13 +15,13 @@ var AudioVizBD = (() => {
             return "AudioVizBD";
         }
         getVersion() {
-            return "1.0.7";
+            return "1.0.8";
         }
         getAuthor() {
             return "𝓟𝓪𝓻𝔃𝓲𝓿𝓪𝓵";
         }
         getDescription() {
-            return "Adds an audio visualizer behind the user modal."
+            return "Adds an audio visualizer behind the user modal.";
         }
 
         // Constructor
@@ -34,7 +34,7 @@ var AudioVizBD = (() => {
 
             if (BdApi.getData(this.getName(), "hasShownChangelog") != true) {
                 ZeresPluginLibrary.Modals.showChangelogModal(this.getName(), this.getVersion(), Changelog, "View [GitHub Repo](https://github.com/dev-parzival/audiovizbd)");
-                BdApi.setData(this.getName(), "hasShownChangelog", true)
+                BdApi.setData(this.getName(), "hasShownChangelog", true);
             }
         }
 
@@ -45,7 +45,7 @@ var AudioVizBD = (() => {
 
             let title = document.createElement("h1");
             title.innerText = this.getName();
-            settings.appendChild(title)
+            settings.appendChild(title);
 
             settings.appendChild(new ZeresPluginLibrary.Settings.ColorPicker("Color", "Can be overwritten by themes.", BdApi.getData(this.getName(), "colorCode"), (color) => {
                 BdApi.setData(this.getName(), "colorCode", color);
@@ -62,7 +62,7 @@ var AudioVizBD = (() => {
 
             this.intervals = [];
             this.startVisualizer();
-            this.loadStylesheet('https://dev-parzival.github.io/audiovizbd/visualizer.css');
+            this.loadStylesheet('https://dev-parzival.github.io/audiovizbd/visualizer.scss');
         }
 
         // Reload
@@ -101,7 +101,7 @@ var AudioVizBD = (() => {
         startVisualizer() {
             const {
                 desktopCapturer
-            } = require('electron')
+            } = require('electron');
             desktopCapturer.getSources({
                 types: ['window', 'screen']
             }).then(async sources => {
@@ -120,93 +120,100 @@ var AudioVizBD = (() => {
                                     chromeMediaSource: 'desktop'
                                 }
                             }
-                        }).catch((err) => {
-                            ZeresPluginLibrary.Modals.showConfirmationModal(this.getName() + " - Oops...",
-                            "Something didnt work as expected:<br>**" + err + "**\n\nIf you see this message the first time,\n try to reload your discord.\n\nIf the problem still persists, please open an issue: https://github.com/cyberfen/audiovizbd/issues",
-                            {
-                                danger: true,
-                                confirmText: "Reload",
-                                cancelText: "Ignore",
-                                onConfirm: function() {DiscordNative.app.relaunch();},
-                                onCancel: function() {}
+                        }).catch(
+                            // Dont get confused plz :P
+                            (err) => {
+                                ZeresPluginLibrary.Modals.showConfirmationModal(
+                                    this.getName() + " - Oops...",
+                                    "Something didnt work as expected:<br>**" + err +
+                                    "**\n\nIf you see this message the first time,\n" +
+                                    "try to reload your discord.\n" +
+                                    "\nIf the problem still persists, please open an issue: https://github.com/cyberfen/audiovizbd/issues", {
+                                        danger: true,
+                                        confirmText: "Reload",
+                                        cancelText: "Ignore",
+                                        onConfirm: function () {
+                                            DiscordNative.app.relaunch();
+                                        },
+                                        onCancel: function () {}
+                                    }
+                                );
                             });
-                        })
-        
-                        const audioCtx = new AudioContext()
-                        const audio = audioCtx.createMediaStreamSource(stream)
-                        const easeInOutCubic = t => t < .5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
-                        const barCount = 25
-        
-                        const analyser = audioCtx.createAnalyser()
-                        audio.connect(analyser)
-                        analyser.fftSize = 1024
-                        let accountContainer
-                        let visualizer = document.createElement('div')
-                        visualizer.classList.add('audioviz-visualizer')
+
+                        const audioCtx = new AudioContext();
+                        const audio = audioCtx.createMediaStreamSource(stream);
+                        const easeInOutCubic = t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+                        const barCount = 25;
+
+                        const analyser = audioCtx.createAnalyser();
+                        audio.connect(analyser);
+                        analyser.fftSize = 1024;
+                        let accountContainer;
+                        let visualizer = document.createElement('div');
+                        visualizer.classList.add('audioviz-visualizer');
                         for (let i = 0; i < barCount; i++) {
-                            let bar = document.createElement('div')
-                            bar.classList.add('audioVisualizer')
-                            bar.style.height = Math.round(Math.random() * 90) + 5 + 'px'
-                            visualizer.appendChild(bar)
+                            let bar = document.createElement('div');
+                            bar.classList.add('audioVisualizer');
+                            bar.style.height = Math.round(Math.random() * 90) + 5 + 'px';
+                            visualizer.appendChild(bar);
                         }
-                        const visualizerGoo = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-                        visualizerGoo.setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns', 'http://www.w3.org/2000/svg')
-                        visualizerGoo.setAttributeNS('http://www.w3.org/2000/version/', 'version', '1.1')
-                        visualizerGoo.classList.add('audioviz-goo')
+                        const visualizerGoo = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                        visualizerGoo.setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns', 'http://www.w3.org/2000/svg');
+                        visualizerGoo.setAttributeNS('http://www.w3.org/2000/version/', 'version', '1.1');
+                        visualizerGoo.classList.add('audioviz-goo');
                         visualizerGoo.innerHTML = `
                         <filter id="audiovizGoo">
                           <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"></feGaussianBlur>
                           <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="audiovizGoo"></feColorMatrix>
                           <feComposite in="SourceGraphic" in2="audiovizGoo" operator="atop">e</feComposite>
                         </filter>
-                      `
-        
+                      `;
+
                         const findElement = setInterval(() => {
                             if (accountContainer) {
                                 visualizer = document.querySelector('.audioviz-visualizer');
                             } else {
                                 accountContainer = document.getElementsByClassName(BdApi.findModuleByProps('downloadProgressCircle', 'panels').panels)[0].lastElementChild;
                                 if (accountContainer) {
-                                    accountContainer.prepend(visualizer)
-                                    accountContainer.prepend(visualizerGoo)
+                                    accountContainer.prepend(visualizer);
+                                    accountContainer.prepend(visualizerGoo);
                                 }
                             }
-                        }, 1000)
-        
+                        }, 1000);
+
                         const style = setInterval(() => {
-                            if (!visualizer) return
-                            const bufferLength = analyser.frequencyBinCount
-                            const dataArray = new Uint8Array(bufferLength)
-                            analyser.getByteFrequencyData(dataArray)
-        
+                            if (!visualizer) return;
+                            const bufferLength = analyser.frequencyBinCount;
+                            const dataArray = new Uint8Array(bufferLength);
+                            analyser.getByteFrequencyData(dataArray);
+
                             for (let i = 0; i < barCount; i++) {
-                                const y = dataArray[i * 2]
-                                const height = easeInOutCubic(Math.min(1, y / 255)) * 100 + 50
-                                const bar = visualizer.children[i]
-                                bar.style.height = height + '%'
+                                const y = dataArray[i * 2];
+                                const height = easeInOutCubic(Math.min(1, y / 255)) * 100 + 50;
+                                const bar = visualizer.children[i];
+                                bar.style.height = height + '%';
                                 if (bar.style.backgroundColor != this.ColorCode) {
                                     bar.style.backgroundColor = this.ColorCode;
                                 }
                             }
-                        }, 20)
-                        this.intervals = [style, findElement]
+                        }, 20);
+                        this.intervals = [style, findElement];
 
                     }
                 }
-                
+
             }).catch(error => {
-                console.error('An error occurred getting media sources', error)
-            })
+                console.error('An error occurred getting media sources', error);
+            });
         }
-    }
+    };
 })();
 
-const Changelog = [
-    {
-        title: "Fixed",
-        type: "improved",
-        items: [
-            "updated style urls thanks to userXinos"
-        ]
-    }
-]
+const Changelog = [{
+    title: "A semicolon here and there...",
+    type: "improved",
+    items: [
+        "I tryed to make the code look cleaner...",
+        "Renamed visualizer.css to visualizer.scss. (Hoping its still working)"
+    ]
+}];
