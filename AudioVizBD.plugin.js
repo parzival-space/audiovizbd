@@ -1,6 +1,6 @@
 /**
  * @name AudioVizBD
- * @version 1.0.9
+ * @version 1.1.0
  * @description Adds an audio visualizer behind the user modal.
  * @authorLink http://parzival-dev.eu/discord
  * @donate http://parzival-dev.eu/donate
@@ -15,7 +15,7 @@ var AudioVizBD = (() => {
             return "AudioVizBD";
         }
         getVersion() {
-            return "1.0.9";
+            return "1.1.0";
         }
         getAuthor() {
             return "𝓟𝓪𝓻𝔃𝓲𝓿𝓪𝓵";
@@ -214,7 +214,7 @@ const Changelog = [{
     type: "improved",
     items: [
         "I tryed to make the code look cleaner...",
-        "Renamed visualizer.css to visualizer.scss. (Hoping its still working)",
+        "Reverted visualizer.scss back to visualizer.css.",
         "Changelog is now working again :)"
     ]
 }];
