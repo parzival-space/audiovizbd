@@ -1,6 +1,6 @@
 /**
  * @name AudioVizBD
- * @version 1.1.0
+ * @version 1.1.1
  * @description Adds an audio visualizer behind the user modal.
  * @authorLink http://parzival-dev.eu/discord
  * @donate http://parzival-dev.eu/donate
@@ -62,7 +62,7 @@ var AudioVizBD = (() => {
 
             this.intervals = [];
             this.startVisualizer();
-            this.loadStylesheet('https://dev-parzival.github.io/audiovizbd/visualizer.scss');
+            this.loadStylesheet('https://dev-parzival.github.io/audiovizbd/visualizer.css');
         }
 
         // Reload
@@ -215,6 +215,7 @@ const Changelog = [{
     items: [
         "I tryed to make the code look cleaner...",
         "Reverted visualizer.scss back to visualizer.css.",
-        "Changelog is now working again :)"
+        "Changelog is now working again :)",
+        "I'm to stupid to rename one file... sorry."
     ]
 }];
