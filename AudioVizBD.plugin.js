@@ -1,6 +1,6 @@
 /**
  * @name AudioVizBD
- * @version 1.0.8
+ * @version 1.0.9
  * @description Adds an audio visualizer behind the user modal.
  * @authorLink http://parzival-dev.eu/discord
  * @donate http://parzival-dev.eu/donate
@@ -15,7 +15,7 @@ var AudioVizBD = (() => {
             return "AudioVizBD";
         }
         getVersion() {
-            return "1.0.8";
+            return "1.0.9";
         }
         getAuthor() {
             return "𝓟𝓪𝓻𝔃𝓲𝓿𝓪𝓵";
@@ -32,9 +32,9 @@ var AudioVizBD = (() => {
             if (BdApi.getData(this.getName(), "colorCode") == undefined) BdApi.setData(this.getName(), "colorCode", "#7289da");
             this.ColorCode = BdApi.getData(this.getName(), "colorCode");
 
-            if (BdApi.getData(this.getName(), "hasShownChangelog") != true) {
+            if (BdApi.getData(this.getName(), "lastVersion") != this.getVersion()) {
                 ZeresPluginLibrary.Modals.showChangelogModal(this.getName(), this.getVersion(), Changelog, "View [GitHub Repo](https://github.com/dev-parzival/audiovizbd)");
-                BdApi.setData(this.getName(), "hasShownChangelog", true);
+                BdApi.setData(this.getName(), "lastVersion", this.getVersion());
             }
         }
 
@@ -214,6 +214,7 @@ const Changelog = [{
     type: "improved",
     items: [
         "I tryed to make the code look cleaner...",
-        "Renamed visualizer.css to visualizer.scss. (Hoping its still working)"
+        "Renamed visualizer.css to visualizer.scss. (Hoping its still working)",
+        "Changelog is now working again :)"
     ]
 }];
