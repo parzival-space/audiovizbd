@@ -15,7 +15,7 @@ var AudioVizBD = (() => {
             return "AudioVizBD";
         }
         getVersion() {
-            return "1.1.0";
+            return "1.1.1";
         }
         getAuthor() {
             return "𝓟𝓪𝓻𝔃𝓲𝓿𝓪𝓵";
