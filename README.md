@@ -1,5 +1,7 @@
 # AudioVizBD
 
+### This project is dead! If you really need a visualizer for Discord, check out my Powercord plugin <a href="https://github.com/malte-linke/powercord-pspectrum">PSpectrum</a>.
+
 ## Description
 
 Adds an audio visualizer behind the user modal.
